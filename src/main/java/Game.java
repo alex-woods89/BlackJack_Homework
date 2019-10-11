@@ -46,7 +46,7 @@ public class Game {
         if ((dealerHandValue > player1HandValue) && (dealerHandValue > player2HandValue)) {
             return "Dealer wins";
         } else if ((player1HandValue > dealerHandValue) && (player1HandValue > player2HandValue)) {
-            return "Player1 wins";
+            return "Player 1 wins";
         } else {
             return "Player 2 wins";
         }
@@ -72,4 +72,8 @@ public class Game {
         }
         return handValue;
     }
+
+    
+
+
 }
