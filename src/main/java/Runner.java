@@ -7,6 +7,8 @@ public class Runner {
 
         System.out.println("Result of Two Card High/Low is " + newGame);
 
+        String blackJackGame = game.playBlackJack();
+
 
     }
 }

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Game {
 
     private Deck deck;
@@ -73,7 +75,27 @@ public class Game {
         return handValue;
     }
 
-    
+    public void blackJackDeal(){
+        this.deck.drawCardFromDeckToPlayer(player1);
+        this.deck.drawCardFromDeckToPlayer(dealer);
+        this.deck.drawCardFromDeckToPlayer(player1);
+        this.deck.drawCardFromDeckToPlayer(dealer);
+    }
+
+    public String playBlackJack(){
+        this.blackJackDeal();
+        this.dealersTurn();
+        Scanner input = new Scanner(System.in);
+        String choice = input.next();
+        if(choice == "hit"){
+            deck.drawCardFromDeckToPlayer(player1);
+        } else if(player1.getHandValue() > dealer.getHandValue()){
+            return "player1 wins";
+        }
+            return "dealer wins";
+
+    }
+    }
 
 
-}
+
