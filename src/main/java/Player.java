@@ -36,4 +36,13 @@ public class Player {
         return secondCard.getSuit().getValue();
     }
 
+    public int getHandValue(){
+        int handValue = 0;
+        for (Card card : hand) {
+           int cardValue = card.getRank().getValue();
+           handValue += cardValue;
+        }
+        return handValue;
+            }
+
 }

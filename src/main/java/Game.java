@@ -39,9 +39,9 @@ public class Game {
     }
 
     public String compareCardsTwoCardHiLow() {
-        int dealerHandValue = dealer.firstCardRankValueInHand() + dealer.secondCardRankValueInHand();
-        int player1HandValue = player1.firstCardRankValueInHand() + player1.secondCardRankValueInHand();
-        int player2HandValue = player2.firstCardRankValueInHand() + player2.secondCardRankValueInHand();
+        int dealerHandValue = dealer.getHandValue();
+        int player1HandValue = player1.getHandValue();
+        int player2HandValue = player2.getHandValue();
 
         if ((dealerHandValue > player1HandValue) && (dealerHandValue > player2HandValue)) {
             return "Dealer wins";
@@ -62,5 +62,14 @@ public class Game {
         this.deck.drawCardFromDeckToPlayer(player2);
         this.deck.drawCardFromDeckToPlayer(dealer);
         return this.compareCardsTwoCardHiLow();
+    }
+
+
+    public int dealersTurn(){
+        int handValue = dealer.getHandValue();
+        if(handValue < 16){
+            this.deck.drawCardFromDeckToPlayer(dealer);
+        }
+        return handValue;
     }
 }
