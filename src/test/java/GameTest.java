@@ -16,8 +16,15 @@ public class GameTest {
         game = new Game();
     }
 
-    @Test
+    //@Test
     public void canPlayTheGames(){
-        assertEquals("Player 1 is The WINNER",game.playTheGame());
+        assertEquals("Player 1 is The WINNER",game.playTheGameHiLow());
+    }
+
+    //@Test
+    public void canPlayGameTwoCardHiLow(){
+        assertEquals("Dealer wins", game.PlayGameTwoCardHiLow());
     }
 }
+
+

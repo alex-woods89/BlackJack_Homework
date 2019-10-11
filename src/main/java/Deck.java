@@ -43,7 +43,7 @@ public class Deck {
        Collections.shuffle(shuffledDeck);
     }
 
-    public void drawCadFromDeckToPlayer(Player player){
+    public void drawCardFromDeckToPlayer(Player player){
 //        ArrayList<Card> shuffledCards = this.createShuffledDeckOfCards();
         Card removedCard = this.shuffledDeck.remove(0);
         player.addCardToHand(removedCard);

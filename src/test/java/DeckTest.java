@@ -49,9 +49,9 @@ public class DeckTest {
     @Test
     public void canDealCards(){
         deck.createShuffledDeckOfCards();
-        deck.drawCadFromDeckToPlayer(player1);
-        deck.drawCadFromDeckToPlayer(player1);
-        deck.drawCadFromDeckToPlayer(player2);
+        deck.drawCardFromDeckToPlayer(player1);
+        deck.drawCardFromDeckToPlayer(player1);
+        deck.drawCardFromDeckToPlayer(player2);
         assertEquals(49, deck.getShuffledDeck().size());
         assertEquals(2, player1.getHand().size());
         assertEquals(1, player2.getHand().size());

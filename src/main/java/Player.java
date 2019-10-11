@@ -21,9 +21,19 @@ public class Player {
         return firstCard.getRank().getValue();
     }
 
+    public int secondCardRankValueInHand(){
+        Card secondCard = this.hand.get(1);
+        return secondCard.getRank().getValue();
+    }
+
     public int firstCardSuitValueinHand(){
         Card firstCard = this.hand.get(0);
         return firstCard.getSuit().getValue();
+    }
+
+    public int secondCardSuitValueInHand(){
+        Card secondCard = this.hand.get(1);
+        return secondCard.getSuit().getValue();
     }
 
 }
