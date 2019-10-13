@@ -7,7 +7,9 @@ public class TwoCardHiLowRunner {
 
 //        TwoCard Hi Low
         Game game = new Game();
+        // Play Hi/Low
 //        System.out.println(game.playTheGameHiLow());
+        // Play BlackJack
         game.playBlackJack();
 
     }

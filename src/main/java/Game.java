@@ -97,8 +97,8 @@ public class Game {
     }
 
     private void decideBlackJackWinner() {
-        int dealerHandValue = dealersTurn();
         int newHandValue = playersTurn();
+        int dealerHandValue = dealersTurn();
         if(dealerHandValue == newHandValue){  System.out.println("it's a draw");}
         else {
             if (dealerHandValue > 21) {
@@ -127,6 +127,7 @@ public class Game {
         if (choice == 1) {
             deck.drawCardFromDeckToPlayer(player1);
             playersHand += player1.getHandValue();
+            this.playersTurn();
         }
         return playersHand;
 
