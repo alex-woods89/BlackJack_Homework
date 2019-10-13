@@ -99,23 +99,26 @@ public class Game {
         int dealerHandValue = dealersTurn();
         int newHandValue = this.playersTurn();
         if(dealerHandValue > 21){
-            System.out.println("Dealer is bust");
+            System.out.println("Dealer is bust on " + dealerHandValue);
         } else if (newHandValue > 21){
-            System.out.println("Player is bust");
+            System.out.println("Player is bust on " + newHandValue);
         }
-        else if (dealerHandValue > newHandValue) {
+        else {
+            if (dealerHandValue > newHandValue) {
              System.out.println("Dealer Wins");
-             System.out.print("Dealer scored " + dealerHandValue + "Player scored " + newHandValue);
-        }
+             System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
+        } else {
         System.out.println("Player Wins");
         System.out.print("Dealer scored " + dealerHandValue + "Player scored " + newHandValue);
+        }
+        }
     }
 
 
     public int playersTurn() {
         int playersHand = player1.getHandValue();
         Scanner input = new Scanner(System.in);
-        System.out.println("Your current hand is" + playersHand);
+        System.out.println("Your current hand is " + playersHand);
         System.out.print("Enter 1 if hit or 0 if stick: ");
         int choice = input.nextInt();
         if (choice == 1) {
