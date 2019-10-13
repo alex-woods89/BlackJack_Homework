@@ -98,7 +98,12 @@ public class Game {
     private void decideBlackJackWinner() {
         int dealerHandValue = dealersTurn();
         int newHandValue = this.playersTurn();
-        if (dealerHandValue > newHandValue) {
+        if(dealerHandValue > 21){
+            System.out.println("Dealer is bust");
+        } else if (newHandValue > 21){
+            System.out.println("Player is bust");
+        }
+        else if (dealerHandValue > newHandValue) {
              System.out.println("Dealer Wins");
              System.out.print("Dealer scored " + dealerHandValue + "Player scored " + newHandValue);
         }
