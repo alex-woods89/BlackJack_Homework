@@ -103,8 +103,10 @@ public class Game {
         else {
             if (dealerHandValue > 21) {
                 System.out.println("Dealer is bust on " + dealerHandValue);
+                System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
             } else if (newHandValue > 21) {
                 System.out.println("Player is bust on " + newHandValue);
+                System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
             } else {
                 if (dealerHandValue > newHandValue) {
                     System.out.println("Dealer Wins");
