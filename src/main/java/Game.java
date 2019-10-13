@@ -7,33 +7,33 @@ public class Game {
     private Player player2;
     private Player dealer;
 
-    public Game(){
+    public Game() {
         this.deck = new Deck();
         this.player1 = new Player();
         this.player2 = new Player();
         this.dealer = new Player();
     }
 
-    public String compareCardsHiLow(){
+    public String compareCardsHiLow() {
         int player1CardRankValue = player1.firstCardRankValueInHand();
         int player2CardRankValue = player2.firstCardRankValueInHand();
 
         int player1CardSuitValue = this.player1.firstCardSuitValueinHand();
         int player2CardSuitValue = this.player2.firstCardSuitValueinHand();
 
-        if(player1CardRankValue > player2CardRankValue){
-            return  "Player 1 is The WINNER";
-        } else if (player2CardRankValue > player1CardRankValue){
+        if (player1CardRankValue > player2CardRankValue) {
+            return "Player 1 is The WINNER";
+        } else if (player2CardRankValue > player1CardRankValue) {
             return "Player 2 is The WINNER";
         } else {
-                if(player1CardSuitValue > player2CardSuitValue){
-                    return  "Player 1 is The WINNER";
-                }
-                return  "Player 2 is The WINNER";
+            if (player1CardSuitValue > player2CardSuitValue) {
+                return "Player 1 is The WINNER";
+            }
+            return "Player 2 is The WINNER";
         }
     }
 
-    public String playTheGameHiLow(){
+    public String playTheGameHiLow() {
         this.deck.createShuffledDeckOfCards();
         this.deck.drawCardFromDeckToPlayer(player1);
         this.deck.drawCardFromDeckToPlayer(player2);
@@ -55,7 +55,7 @@ public class Game {
 
     }
 
-    public String PlayGameTwoCardHiLow(){
+    public String PlayGameTwoCardHiLow() {
         this.deck.createShuffledDeckOfCards();
         this.deck.drawCardFromDeckToPlayer(player1);
         this.deck.drawCardFromDeckToPlayer(player2);
@@ -67,35 +67,62 @@ public class Game {
     }
 
 
-    public int dealersTurn(){
-        int handValue = dealer.getHandValue();
-        if(handValue < 16){
+    public int dealersTurn() {
+        int dealerHandValue = dealer.getHandValue();
+        if (dealerHandValue <= 16) {
             this.deck.drawCardFromDeckToPlayer(dealer);
+            this.dealersTurn();
         }
-        return handValue;
+        return dealerHandValue;
     }
 
-    public void blackJackDeal(){
+    public void blackJackDeal() {
+        this.deck.createShuffledDeckOfCards();
         this.deck.drawCardFromDeckToPlayer(player1);
         this.deck.drawCardFromDeckToPlayer(dealer);
         this.deck.drawCardFromDeckToPlayer(player1);
         this.deck.drawCardFromDeckToPlayer(dealer);
     }
 
-    public String playBlackJack(){
+    public void playBlackJack() {
+        // deal cards to player and dealer
         this.blackJackDeal();
+        // player takes turn draws cards
+        this.playersTurn();
+        //dealer takes turn and draws cards
         this.dealersTurn();
-        Scanner input = new Scanner(System.in);
-        String choice = input.next();
-        if(choice == "hit"){
-            deck.drawCardFromDeckToPlayer(player1);
-        } else if(player1.getHandValue() > dealer.getHandValue()){
-            return "player1 wins";
+        //decide on a winner
+         this.decideBlackJackWinner();
+    }
+
+    private void decideBlackJackWinner() {
+        int dealerHandValue = dealersTurn();
+        int newHandValue = this.playersTurn();
+        if (dealerHandValue > newHandValue) {
+             System.out.println("Dealer Wins");
+             System.out.print("Dealer scored " + dealerHandValue + "Player scored " + newHandValue);
         }
-            return "dealer wins";
+        System.out.println("Player Wins");
+        System.out.print("Dealer scored " + dealerHandValue + "Player scored " + newHandValue);
+    }
+
+
+    public int playersTurn() {
+        int playersHand = player1.getHandValue();
+        Scanner input = new Scanner(System.in);
+        System.out.println("Your current hand is" + playersHand);
+        System.out.print("Enter 1 if hit or 0 if stick: ");
+        int choice = input.nextInt();
+        if (choice == 1) {
+            deck.drawCardFromDeckToPlayer(player1);
+            playersHand += player1.getHandValue();
+        }
+        return playersHand;
 
     }
-    }
+}
+
+
 
 
 
