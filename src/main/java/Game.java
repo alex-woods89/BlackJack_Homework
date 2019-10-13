@@ -91,6 +91,7 @@ public class Game {
         this.playersTurn();
         //dealer takes turn and draws cards
         this.dealersTurn();
+        // check if a draw
         //decide on a winner
         this.decideBlackJackWinner();
     }
@@ -98,17 +99,20 @@ public class Game {
     private void decideBlackJackWinner() {
         int dealerHandValue = dealersTurn();
         int newHandValue = playersTurn();
-        if (dealerHandValue > 21) {
-            System.out.println("Dealer is bust on " + dealerHandValue);
-        } else if (newHandValue > 21) {
-            System.out.println("Player is bust on " + newHandValue);
-        } else {
-            if (dealerHandValue > newHandValue) {
-                System.out.println("Dealer Wins");
-                System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
+        if(dealerHandValue == newHandValue){  System.out.println("it's a draw");}
+        else {
+            if (dealerHandValue > 21) {
+                System.out.println("Dealer is bust on " + dealerHandValue);
+            } else if (newHandValue > 21) {
+                System.out.println("Player is bust on " + newHandValue);
             } else {
-                System.out.println("Player Wins");
-                System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
+                if (dealerHandValue > newHandValue) {
+                    System.out.println("Dealer Wins");
+                    System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
+                } else {
+                    System.out.println("Player Wins");
+                    System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
+                }
             }
         }
     }
@@ -127,6 +131,8 @@ public class Game {
         return playersHand;
 
     }
+
+
 }
 
 
