@@ -92,28 +92,26 @@ public class Game {
         //dealer takes turn and draws cards
         this.dealersTurn();
         //decide on a winner
-         this.decideBlackJackWinner();
+        this.decideBlackJackWinner();
     }
 
     private void decideBlackJackWinner() {
         int dealerHandValue = dealersTurn();
-        int newHandValue = this.playersTurn();
-        if(dealerHandValue > 21){
+        int newHandValue = playersTurn();
+        if (dealerHandValue > 21) {
             System.out.println("Dealer is bust on " + dealerHandValue);
-        } else if (newHandValue > 21){
+        } else if (newHandValue > 21) {
             System.out.println("Player is bust on " + newHandValue);
-        }
-        else {
-            if (dealerHandValue > newHandValue) {
-             System.out.println("Dealer Wins");
-             System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
         } else {
-        System.out.println("Player Wins");
-        System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
-        }
+            if (dealerHandValue > newHandValue) {
+                System.out.println("Dealer Wins");
+                System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
+            } else {
+                System.out.println("Player Wins");
+                System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
+            }
         }
     }
-
 
 
     public int playersTurn() {

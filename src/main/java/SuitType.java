@@ -6,9 +6,11 @@ public enum SuitType {
 
     private final int value;
 
-    SuitType(int value){ this.value = value; }
+    SuitType(int value) {
+        this.value = value;
+    }
 
-    public int getValue(){
+    public int getValue() {
         return this.value;
     }
 

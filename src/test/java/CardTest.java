@@ -8,12 +8,12 @@ public class CardTest {
     private Card card1;
 
     @Before
-    public void before(){
+    public void before() {
         card1 = new Card(SuitType.SPADES, RankType.ACE);
     }
 
     @Test
-    public void testCardcanGetRankAndSuit(){
+    public void testCardcanGetRankAndSuit() {
         assertEquals(SuitType.SPADES, card1.getSuit());
         assertEquals(RankType.ACE, card1.getRank());
     }

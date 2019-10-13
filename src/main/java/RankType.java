@@ -15,11 +15,11 @@ public enum RankType {
 
     private final int value;
 
-    RankType( int value ){
+    RankType(int value) {
         this.value = value;
     }
 
-    public int getValue(){
+    public int getValue() {
         return this.value;
     }
 }

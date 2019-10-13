@@ -8,12 +8,12 @@ public class PlayerTest {
     private Player player;
 
     @Before
-    public void before(){
+    public void before() {
         player = new Player();
     }
 
     @Test
-    public void testPlayerStartsWithEmptyHand(){
+    public void testPlayerStartsWithEmptyHand() {
         assertEquals(0, player.getHand().size());
     }
 }

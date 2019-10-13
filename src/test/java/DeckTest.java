@@ -11,7 +11,7 @@ public class DeckTest {
     private Player player2;
 
     @Before
-    public void before(){
+    public void before() {
         deck = new Deck();
         card = new Card(SuitType.DIAMONDS, RankType.FIVE);
         player1 = new Player();
@@ -19,35 +19,35 @@ public class DeckTest {
     }
 
     @Test
-    public void testDeckStartEmpty(){
+    public void testDeckStartEmpty() {
         assertEquals(0, deck.getDeckOfCardsCount());
     }
 
     @Test
-    public void canAddCard(){
+    public void canAddCard() {
         deck.addCardToDeck(card);
         assertEquals(1, deck.getDeckOfCardsCount());
     }
 
     @Test
-    public void canGetArrayOfSuits(){
+    public void canGetArrayOfSuits() {
         assertEquals(4, deck.getSuitsArray());
     }
 
     @Test
-    public void canPopulateDeckOfCards(){
+    public void canPopulateDeckOfCards() {
         deck.createDeckOfCards();
         assertEquals(52, deck.getDeckOfCardsCount());
     }
 
     @Test
-    public void canShuffleCards(){
+    public void canShuffleCards() {
         deck.createShuffledDeckOfCards();
-        assertEquals(52,deck.getShuffledDeck().size());
+        assertEquals(52, deck.getShuffledDeck().size());
     }
 
     @Test
-    public void canDealCards(){
+    public void canDealCards() {
         deck.createShuffledDeckOfCards();
         deck.drawCardFromDeckToPlayer(player1);
         deck.drawCardFromDeckToPlayer(player1);

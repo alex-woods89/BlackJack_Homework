@@ -10,7 +10,7 @@ public class GameTest {
     private Player dealer;
 
     @Before
-    public void before(){
+    public void before() {
         deck = new Deck();
         deck.createDeckOfCards();
 //       we want to pass the deck without shuffling to the game
@@ -19,17 +19,17 @@ public class GameTest {
     }
 
     //@Test
-    public void canPlayTheGames(){
-        assertEquals("Player 1 is The WINNER",game.playTheGameHiLow());
+    public void canPlayTheGames() {
+        assertEquals("Player 1 is The WINNER", game.playTheGameHiLow());
     }
 
     //@Test
-    public void canPlayGameTwoCardHiLow(){
+    public void canPlayGameTwoCardHiLow() {
         assertEquals("Dealer wins", game.PlayGameTwoCardHiLow());
     }
 
     //@Test
-    public void dealersTurnWorks(){
+    public void dealersTurnWorks() {
         deck.createShuffledDeckOfCards();
         deck.drawCardFromDeckToPlayer(dealer);
         deck.drawCardFromDeckToPlayer(dealer);
