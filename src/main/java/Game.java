@@ -109,10 +109,11 @@ public class Game {
              System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
         } else {
         System.out.println("Player Wins");
-        System.out.print("Dealer scored " + dealerHandValue + "Player scored " + newHandValue);
+        System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
         }
         }
     }
+
 
 
     public int playersTurn() {
