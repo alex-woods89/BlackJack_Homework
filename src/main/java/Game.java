@@ -124,13 +124,14 @@ public class Game {
         int playersHand = player1.getHandValue();
         Scanner input = new Scanner(System.in);
         System.out.println("Your current hand is " + playersHand);
+        if(playersHand > 21){ System.out.print("Player is bust! ");} else{
         System.out.print("Enter 1 if hit or 0 if stick: ");
         int choice = input.nextInt();
         if (choice == 1) {
             deck.drawCardFromDeckToPlayer(player1);
             playersHand += player1.getHandValue();
             this.playersTurn();
-        } else { playersHand += 0; }
+        } else { playersHand += 0; }}
         return playersHand;
 
     }
