@@ -99,8 +99,9 @@ public class Game {
     private void decideBlackJackWinner() {
         int newHandValue = player1.getHandValue();
         int dealerHandValue = dealer.getHandValue();
-        if(dealerHandValue == newHandValue){  System.out.println("it's a draw");}
-        else {
+        if (dealerHandValue == newHandValue) {
+            System.out.println("it's a draw");
+        } else {
             if (dealerHandValue > 21) {
                 System.out.println("Dealer is bust on " + dealerHandValue);
                 System.out.print("Dealer scored " + dealerHandValue + " Player scored " + newHandValue);
@@ -124,14 +125,19 @@ public class Game {
         int playersHand = player1.getHandValue();
         Scanner input = new Scanner(System.in);
         System.out.println("Your current hand is " + playersHand);
-        if(playersHand > 21){ System.out.print("Player is bust! ");} else{
-        System.out.print("Enter 1 if hit or 0 if stick: ");
-        int choice = input.nextInt();
-        if (choice == 1) {
-            deck.drawCardFromDeckToPlayer(player1);
-            playersHand += player1.getHandValue();
-            this.playersTurn();
-        } else { playersHand += 0; }}
+        if (playersHand > 21) {
+            System.out.print("Player is bust! ");
+        } else {
+            System.out.print("Enter 1 if hit or 0 if stick: ");
+            int choice = input.nextInt();
+            if (choice == 1) {
+                deck.drawCardFromDeckToPlayer(player1);
+                playersHand += player1.getHandValue();
+                this.playersTurn();
+            } else {
+                playersHand += 0;
+            }
+        }
         return playersHand;
 
     }
